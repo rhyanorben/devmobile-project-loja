@@ -28,9 +28,11 @@ class CarrinhoCompras {
         return itens.entries.sumOf{ (produto, quantidade) -> produto.preco * quantidade }
     }
 
-    fun mostrarCarrinho(): String {
+    @Composable
+    fun mostrarCarrinho() {
         if (itens.isEmpty()) {
-            return "O carrinho está vazio."
+            Text(text = "O carrinho está vazio.")
+            return
         }
 
         val builder = StringBuilder("Carrinho de compras:\n")
@@ -39,7 +41,7 @@ class CarrinhoCompras {
         }
         builder.append("Total: R$ ${calcularTotal()}")
 
-        return builder.toString();
+        Text(text = "O carrinho está vazio.")
     }
 
     fun limparCarrinho() {
@@ -56,5 +58,5 @@ fun mostrarCarrinho() {
     carrinho.adicionarProduto(p1, 1)
     carrinho.adicionarProduto(p2, 5)
 
-    Text(text = carrinho.mostrarCarrinho())
+    carrinho.mostrarCarrinho()
 }

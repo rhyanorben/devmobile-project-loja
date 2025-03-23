@@ -12,13 +12,15 @@ class Cliente (
 
     @Composable
     fun exibirSaldo() {
-        Text(
-            text = "$nome. Saldo atual: ${getSaldoFormatado()}."
-        )
+        Text(text = "$nome. Saldo atual: ${getSaldoFormatado()}.")
     }
 
     fun getSaldoFormatado(): String {
         return this.saldo.toString().replace(".", ",");
+    }
+
+    fun adicionarSaldo(valor: Double) {
+        this.saldo += valor
     }
 
 }
